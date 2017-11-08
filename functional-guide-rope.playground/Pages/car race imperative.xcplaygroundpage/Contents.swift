@@ -16,6 +16,6 @@ while time > 0 {
     carPositions[i] += randomIntFrom0to(1)
     
     // MARK: draw cars
-    print(Array(count: carPositions[i], repeatedValue: "-").joinWithSeparator(""))
+    print(Array(repeating: "-", count: carPositions[i]).joined(separator: ""))
   }
 }

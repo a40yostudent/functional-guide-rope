@@ -7,24 +7,24 @@ struct State {
   let carPositions: [Int]
 }
 
-func moveCars(carPositions: [Int]) -> [Int] {
+func moveCars(_ carPositions: [Int]) -> [Int] {
   return carPositions.map{$0 + randomIntFrom0to(1)}
 }
 
-func drawCar(carPosition: Int) -> String {
-  return Array(count: carPosition, repeatedValue: "-").joinWithSeparator("")
+func drawCar(_ carPosition: Int) -> String {
+    return Array(repeating: "-", count: carPosition).joined(separator: "")
 }
 
-func runStepOfRace(state: State) -> (State) {
+func runStepOfRace(_ state: State) -> (State) {
   return State(time: state.time - 1, carPositions: moveCars(state.carPositions))
 }
 
-func draw(carPositions: [Int]) {
-  print(carPositions.map{ drawCar($0) }.joinWithSeparator("\n"))
+func draw(_ carPositions: [Int]) {
+    print(carPositions.map{ drawCar($0) }.joined(separator: "\n"))
   print("\n")
 }
 
-func race(state: State) {
+func race(_ state: State) {
   draw(state.carPositions)
   if state.time > 0 { race(runStepOfRace(state)) }
 }

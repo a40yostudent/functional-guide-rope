@@ -12,8 +12,8 @@ func moveCars() {
   }
 }
 
-func drawCar(carPosition: Int) {
-  print(Array(count: carPosition, repeatedValue: "-").joinWithSeparator(""))
+func drawCar(_ carPosition: Int) {
+    print(Array(repeating: "-", count: carPosition).joined(separator: ""))
 }
 
 func runStepOfRace() {
